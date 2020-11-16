@@ -1,0 +1,36 @@
+{
+  "borderInterfaces": [
+    {
+      "borderInterface": {
+        "hostname": "bor01",
+        "interface": "xe-1/2/0.0"
+      }
+    }, {
+      "borderInterface": {
+        "hostname": "bor02",
+        "interface": "xe-1/2/0.0"
+      }
+    }
+  ],
+  "filter": {
+    "onlyRemoteAsns": [],
+    "onlyRemoteIps": []
+  },
+  "ispNodeInfo": [
+    {
+      "asn": 577,
+      "name": "ISP-1",
+      "trafficFiltering": {
+        "mode": "none"
+      }
+    },
+    {
+      "asn": 600,
+      "name": "ISP-2",
+      "trafficFiltering": {
+        "mode": "none"
+      }
+    }
+  ]
+}
+
