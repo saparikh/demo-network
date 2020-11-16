@@ -1,16 +1,4 @@
-on:
-  push:
-    paths:
-      - 'demonet/**'
-      - './github/workflows/demonet_test.yml'
-  pull_request:
-    paths:
-      - 'demonet/**'
-      - './github/workflows/demonet_test.yml'
-# this specific workflow will only be triggered for changes related to the network "demonet"
-# if you have multiple networks stored in this repository, this will allow you to just
-# run the GH action against networks that have changed. Changes include configurations as well
-# as the GH action itself
+on: [push, pull_request]
 
 jobs:
   build:
