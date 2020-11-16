@@ -25,16 +25,15 @@ jobs:
     - name: Set current timestamp as output variable
       run: |
           echo "::set-output name=timestamp::$(date +'%Y-%m-%dT%H:%M:%S')"
-          echo "::set-output network=demonet"
           echo "::set-output branch=$(echo ${GITHUB_REF#refs/heads/})"
-      id: set_vars #set the network name to demonetwork and snapshot related information (branch and timestamp)
+      id: set_vars #set snapshot related information (branch and timestamp)
 
     - name: Create snapshot directory required for Batfish
       run: |
         mkdir -p $GITHUB_WORKSPACE/tmp/configs
         mkdir -p $GITHUB_WORKSPACE/tmp/batfish
-        cp $GITHUB_WORKSPACE/main/${{ steps.set_vars.outputs.network}}/prod/configs/*.cfg $GITHUB_WORKSPACE/tmp/configs/
-        cp $GITHUB_WORKSPACE/main/${{ steps.set_vars.outputs.network}}/prod/batfish/* $GITHUB_WORKSPACE/tmp/batfish/
+        cp $GITHUB_WORKSPACE/main/demonet/prod/configs/*.cfg $GITHUB_WORKSPACE/tmp/configs/
+        cp $GITHUB_WORKSPACE/main/demonet/prod/batfish/* $GITHUB_WORKSPACE/tmp/batfish/
         echo "::set-output name=snapshot_dir::$GITHUB_WORKSPACE/tmp/"
       id: prepare_snapshot
 
@@ -50,7 +49,7 @@ jobs:
         server_name: ${{ secrets.BFE_SERVER_NAME }}
         server_ip: ${{ secrets.BFE_SERVER_IP }}
         snapshot_folder: ${{ steps.prepare_snapshot.outputs.snapshot_dir }}
-        network_name: ${{ steps.set_vars.outputs.network }}
+        network_name: demonet
         snapshot_name: ${{ steps.set_vars.outputs.branch }}-${{ steps.set_vars.outputs.timestamp }}
         ssl_certificate: ${{ secrets.BFE_SSL_CERTIFICATE }}
       id: upload_snapshot
