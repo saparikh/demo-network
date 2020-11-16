@@ -12,8 +12,8 @@ jobs:
 
     - name: Set current timestamp as output variable
       run: |
-          echo "::set-output name=timestamp::$(date +'%Y-%m-%dT%H:%M:%S')"
-          echo "::set-output branch=$(echo ${GITHUB_REF#refs/heads/})"
+          echo "::set-output name=timestamp::$(date +'%Y-%m-%dT%H:%M')"
+          echo "::set-output branch=${GITHUB_REF#refs/heads/}"
       id: set_vars #set snapshot related information (branch and timestamp)
 
     - name: Create snapshot directory required for Batfish
