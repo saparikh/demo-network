@@ -1,6 +1,6 @@
 # demo-network
 
-This repository holds the configurations devices (routers, switches, firewalls, etc...) in our demo network.
+This repository holds the configurations of the network elements (routers, switches, firewalls, etc...) in our demo network.
 
 The purpose is to show off the use of Batfish Enterprise to evaluate policy compliance of production configurations that are archived in Github
 - This is accomplished with the help of a custom Github action. 
