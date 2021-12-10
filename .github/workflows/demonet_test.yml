@@ -40,6 +40,7 @@ jobs:
         network_name: demonet
         snapshot_name: ${{ steps.set_vars.outputs.branch }}-${{ steps.set_vars.outputs.timestamp }}
         ssl_certificate: ${{ secrets.BFE_SSL_CERTIFICATE }}
+        access_token: ${{ BFE_ACCESS_TOKEN }}
       id: upload_snapshot
 
     - name: Retrieve outputs from BFE upload action
