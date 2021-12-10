@@ -32,7 +32,7 @@ jobs:
         path: ${{ steps.prepare_snapshot.outputs.snapshot_dir }}
 
     - name: Upload new snapshot to Batfish Enterprise server
-      uses: saparikh/bfe-upload@v1.0
+      uses: saparikh/bfe-upload@v1.1
       with:
         server_name: ${{ secrets.BFE_SERVER_NAME }}
         server_ip: ${{ secrets.BFE_SERVER_IP }}
